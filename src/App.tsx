@@ -95,7 +95,6 @@ const SCAN_PHASES = [
   "Checking email security...",
 ];
 const SCAN_TOTAL_MS = 3000;
-const PHASE_MS = SCAN_TOTAL_MS / SCAN_PHASES.length;
 
 // ─── graph data builder ───────────────────────────────────────────────────────
 
@@ -949,7 +948,7 @@ export default function App() {
                 const e = event as MouseEvent;
                 setTooltip({ x: e.clientX, y: e.clientY, node: node as GNode });
               }}
-              onNodeClick={(node: any) => {
+              onNodeClick={(node: any, _event: any, _state: any) => {
                 const n = node as GNode;
                 setSelectedNode(n);
                 focusNode(n);
